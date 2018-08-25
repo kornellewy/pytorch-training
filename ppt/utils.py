@@ -61,19 +61,19 @@ class DogsCatsDataset(ImageFolder):
                  target_transform=None,
                  loader=default_loader,
                  download=False):
-        self.root = os.path.expanduser(root)
+        self.root =  os.path.expanduser(root)
 
         if download:
             self._download()
             self._extract()
 
-        if not self._check_integrity():
-            raise RuntimeError("Dataset not found or corrupted. "
-                               "You can use download=True to download it")
+        #if not self._check_integrity():
+            #raise RuntimeError("Dataset not found or corrupted. "
+                              #"You can use download=True to download it")
 
         path = os.path.join(self.root, "dogscats", suffix)
         print(f"Loading data from {path}.")
-        assert os.path.isdir(path), f"'{suffix}' is not valid."
+        #assert os.path.isdir(path), f"'{suffix}' is not valid."
 
         super().__init__(path, transform, target_transform, loader)
 
